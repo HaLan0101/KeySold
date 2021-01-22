@@ -3,14 +3,14 @@
 
 <head>
 
-    @include('ClientPart.Partials.head')
+    @include('ClientPart.Partials.index.head')
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  @include('ClientPart.Partials.nav')
+  @include('ClientPart.Partials.index.nav')
 
   <!-- Page Content -->
   <div class="container">
@@ -19,7 +19,6 @@
     <header class="jumbotron my-4">
       <h1 class="display-3">Bienvenue sur KeySold !</h1>
       <p class="lead">Achète tes clés CD à bas prix et joue à tes jeux favoris !!</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
     </header>
 
     <!-- Page Features -->
@@ -84,10 +83,10 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  @include('ClientPart.Partials.footer')
+  @include('ClientPart.Partials.index.footer')
 
   <!-- Bootstrap core JavaScript -->
-  @include('ClientPart.Partials.footer-script')
+  @include('ClientPart.Partials.index.footer-script')
 
 </body>
 

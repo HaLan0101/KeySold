@@ -45,3 +45,7 @@ Route::post('/login','App\Http\Controllers\LoginController@connexion');
 Route::get('/index', function() {
     return view('ClientPart.Portal.index');
 });
+
+Route::get('/product', function() {
+    return view('ClientPart.Portal.product');
+});

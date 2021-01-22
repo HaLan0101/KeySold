@@ -5,6 +5,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+      {{-- Research bar --}}
+        <ul class="navbar-nav">
+            <div>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for a game...">
+                  <span class="input-group-append">
+                    <button class="btn btn-secondary" type="button">Search !</button>
+                  </span>
+                </div>
+            </div>
+        </ul>
+        {{-- End Research bar --}}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home
