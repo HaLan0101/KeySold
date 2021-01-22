@@ -4,7 +4,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Keysold</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -14,3 +14,5 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('startbootstrap-sb-admin-2-gh-pages\css\sb-admin-2.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="{{asset('startbootstrap-sb-admin-2-gh-pages\vendor\datatables\dataTables.bootstrap4.min.css')}}" rel="stylesheet">

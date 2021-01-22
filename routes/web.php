@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Portal.dashboard');
+    return view('Layout.app');
 });
+Route::get('/dashboard','App\Http\Controllers\AdminController@dashboard');
+Route::get('/membre','App\Http\Controllers\AdminController@membre');
+Route::get('/produit','App\Http\Controllers\AdminController@produit');
+Route::get('/login','App\Http\Controllers\AdminController@login');
+Route::get('/register','App\Http\Controllers\AdminController@register');
+Route::get('/forgotpassword','App\Http\Controllers\AdminController@forgotpassword');
