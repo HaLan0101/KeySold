@@ -42,3 +42,6 @@ Route::post('/register','App\Http\Controllers\RegisterController@createUser');
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::post('/login','App\Http\Controllers\LoginController@connexion');
 
+Route::get('/index', function() {
+    return view('ClientPart.Portal.index');
+});
