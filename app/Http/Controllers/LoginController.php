@@ -43,8 +43,4 @@ class LoginController extends Controller
 
         return redirect('/index');
     }
-    public function signout(){
-        auth()->logout();
-        return redirect('/signout');
-    }
 }
