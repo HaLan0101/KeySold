@@ -21,16 +21,23 @@ class LoginController extends Controller
 
         ]);
         
-        $result = auth()->attempt([
-            'email'=> request('email'),
-            'password'=> request('password')
-        ]);
-
-        if($result){
-            return view('Portal.dashboard');
+        // auth()->attempt([
+        //     'email'=> request('email'),
+        //     'password'=> request('password')
+        // ]);
+        if(auth()->attempt(['email'=> request('email'),'password'=> request('password')]))
+        {
+            if(auth()->user()->is_admin==1){
+                return view('Portal.dashboard');
+            }
+            else{
+                return view('Portal.membre');
+            }
+        }else{
+            return back()->withErrors([
+                'email'=>"Ces informations d'identification ne correspondent pas à nos enregistrements"
+            ]);
         }
-        return back()->withErrors([
-            'email'=>"Ces informations d'identification ne correspondent pas à nos enregistrements"
-        ]);
+        
     }
 }

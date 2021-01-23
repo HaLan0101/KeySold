@@ -16,13 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->string('nom');
             $table->string('prenom');
-            $table->date('date_de_naissance');
+            $table->date('date_de_naissance')->nullable();
             $table->integer('solde')->nullable();
+            $table->integer('is_admin')->nullable();
             $table->timestamps();
         });
     }
@@ -37,4 +36,3 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
-
