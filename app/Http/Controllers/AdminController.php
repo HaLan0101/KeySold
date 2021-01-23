@@ -15,12 +15,6 @@ class AdminController extends Controller
     public function produit(){
         return view('Portal.produit');
     }
-    public function login(){
-        return view('Connexion.login');
-    }
-    public function register(){
-        return view('Connexion.register');
-    }
     public function forgotpassword(){
         return view('Connexion.forgotpassword');
     }

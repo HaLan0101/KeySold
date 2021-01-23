@@ -18,58 +18,69 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" action="/register" method="POST">
+                                {{csrf_field()}}
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <label for="InputNom">Nom: </label>
+                                        <input type="text" name="nom" class="form-control form-control-user" 
+                                            placeholder="" value="{{old('nom')}}" label="Nom" id="InputNom" aria-describedby="nomHelp">
+                                        @if($errors->has('nom'))
+                                        <small id="nomHelp" class="form-text text-muted">{{$errors->first('nom')}}</small>
+                                        @endif
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <label for="InputPrenom">Prenom: </label>
+                                        <input type="text" name="prenom" class="form-control form-control-user" 
+                                            placeholder="" value="{{old('prenom')}}" label="Prenom" id="InputPrenom" aria-describedby="prenomHelp">
+                                        @if($errors->has('prenom'))
+                                        <small id="prenomHelp" class="form-text text-muted">{{$errors->first('prenom')}}</small>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6">
-                                        <label for="">Date of birth: </label>
-                                        <input type="date" class="form-control form-control-user" id="exampleDayOfBirth"
-                                            placeholder="Day of birth">
+                                        <label for="">Date de naissance: </label>
+                                        <input type="date" name="date_de_naissance" class="form-control form-control-user" 
+                                            placeholder="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <label for="InputEmail">Email: </label>
+                                    <input type="email" name="email" class="form-control form-control-user" 
+                                        placeholder="" value="{{old('email')}}" label="Email" id="InputEmail" aria-describedby="emailHelp">
+                                    @if($errors->has('email'))
+                                    <small id="emailHelp" class="form-text text-muted">{{$errors->first('email')}}</small>
+                                    @endif
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <label for="InputPassword">Password: </label>
+                                        <input type="password" name="password" class="form-control form-control-user" 
+                                            placeholder=""  label="Password" id="InputPassword" aria-describedby="passwordlHelp">
+                                        @if($errors->has('password'))
+                                        <small id="passwordlHelp" class="form-text text-muted">{{$errors->first('password')}}</small>
+                                        @endif
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <label for="InputConfirmPassword">Password Confirmation : </label>
+                                        <input type="password" name="confirm-password" class="form-control form-control-user" 
+                                            placeholder=""  label="ConfirmPassword" id="InputConfirmPassword" aria-describedby="confirmpasswordlHelp">
+                                        @if($errors->has('confirm-password'))
+                                        <small id="confirmpasswordlHelp" class="form-text text-muted">{{$errors->first('confirm-password')}}</small>
+                                        @endif
                                     </div>
                                 </div>
-                                
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                <input type="submit" value="Créer votre compte" class="btn btn-primary btn-user btn-block">
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="{{url('/forgotpassword')}}">Forgot Password?</a>
+                                <a class="small" href="{{url('/forgotpassword')}}">Mot de passe oublié?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="{{url('/login')}}">Already have an account? Login!</a>
+                                <a class="small" href="{{url('/login')}}">Vous avez déjà un compte? S'identifier!</a>
                             </div>
                         </div>
                     </div>

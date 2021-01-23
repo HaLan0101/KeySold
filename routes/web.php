@@ -20,5 +20,12 @@ Route::get('/dashboard','App\Http\Controllers\AdminController@dashboard');
 Route::get('/membre','App\Http\Controllers\AdminController@membre');
 Route::get('/produit','App\Http\Controllers\AdminController@produit');
 Route::get('/login','App\Http\Controllers\AdminController@login');
-Route::get('/register','App\Http\Controllers\AdminController@register');
+
 Route::get('/forgotpassword','App\Http\Controllers\AdminController@forgotpassword');
+
+Route::get('/register','App\Http\Controllers\RegisterController@register');
+Route::post('/register','App\Http\Controllers\RegisterController@createUser');
+
+
+Route::get('/login','App\Http\Controllers\LoginController@login');
+Route::post('/login','App\Http\Controllers\LoginController@connexion');

@@ -25,15 +25,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="/login" method="post">
+                                    {{csrf_field()}}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <label for="InputEmail">Email: </label>
+                                            <input type="email" name="email" class="form-control form-control-user" 
+                                                placeholder="" label="Email" id="InputEmail" aria-describedby="emailHelp">
+                                            @if($errors->has('email'))
+                                            <small id="emailHelp" class="form-text text-muted">{{$errors->first('email')}}</small>
+                                            @endif
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <label for="InputPassword">Password: </label>
+                                            <input type="password" name="password" class="form-control form-control-user" 
+                                                placeholder=""  label="Password" id="InputPassword" aria-describedby="passwordlHelp">
+                                            @if($errors->has('password'))
+                                            <small id="passwordlHelp" class="form-text text-muted">{{$errors->first('password')}}</small>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -42,16 +50,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <input type="submit" value="Connecter" class="btn btn-primary btn-user btn-block">
                                     </form>
                                     <hr>
                                     <div class="text-center">
