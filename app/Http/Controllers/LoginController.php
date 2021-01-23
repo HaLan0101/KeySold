@@ -20,21 +20,21 @@ class LoginController extends Controller
             'password'=>['required','min:8'],
 
         ]);
-        
+
         if(auth()->attempt(['email'=> request('email'),'password'=> request('password')]))
         {
             if(auth()->user()->is_admin==1){
                 return view('Portal.dashboard');
             }
             else{
-                return view('Portal.dashboard');
+                return view('ClientPart.Portal.index');
             }
         }else{
             return back()->withErrors([
                 'email'=>"Ces informations d'identification ne correspondent pas à nos enregistrements"
             ]);
         }
-        
+
     }
     public function signout(){
         auth()->logout();
