@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/dashboard')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('Portal/dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{url('/dashboard')}}">
+        <a class="nav-link" href="{{url('Portal/dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tableau de bord</span></a>
     </li>
@@ -50,7 +50,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="{{url('/membre')}}">
+        <a class="nav-link" href="{{url('Portal/membre')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Page Membre</span></a>
     </li>

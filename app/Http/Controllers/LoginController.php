@@ -21,17 +21,13 @@ class LoginController extends Controller
 
         ]);
         
-        // auth()->attempt([
-        //     'email'=> request('email'),
-        //     'password'=> request('password')
-        // ]);
         if(auth()->attempt(['email'=> request('email'),'password'=> request('password')]))
         {
             if(auth()->user()->is_admin==1){
                 return view('Portal.dashboard');
             }
             else{
-                return view('Portal.membre');
+                return view('Portal.dashboard');
             }
         }else{
             return back()->withErrors([
@@ -39,5 +35,9 @@ class LoginController extends Controller
             ]);
         }
         
+    }
+    public function signout(){
+        auth()->logout();
+        return redirect('/signout');
     }
 }

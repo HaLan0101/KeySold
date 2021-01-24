@@ -14,12 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Layout.app');
+    return view('Connexion.login');
 });
-Route::get('/dashboard','App\Http\Controllers\AdminController@dashboard');
-Route::get('/membre','App\Http\Controllers\AdminController@membre');
-Route::get('/produit','App\Http\Controllers\AdminController@produit');
-Route::get('/login','App\Http\Controllers\AdminController@login');
+Route::group([
+    'middleware'=>'App\Http\Middleware\Auth'
+],function(){
+    Route::get('/updatemembre','App\Http\Controllers\AdminController@form_update_membre');
+    Route::post('/updatemembre','App\Http\Controllers\AdminController@update_membre');
+    Route::get('Portal/dashboard','App\Http\Controllers\AdminController@dashboard');
+    Route::get('Portal/membre','App\Http\Controllers\AdminController@membre');
+    Route::get('/produit','App\Http\Controllers\AdminController@produit');
+    Route::get('/signout','App\Http\Controllers\LoginController@signout');
+});
+
 
 Route::get('/forgotpassword','App\Http\Controllers\AdminController@forgotpassword');
 
@@ -29,3 +36,4 @@ Route::post('/register','App\Http\Controllers\RegisterController@createUser');
 
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::post('/login','App\Http\Controllers\LoginController@connexion');
+
