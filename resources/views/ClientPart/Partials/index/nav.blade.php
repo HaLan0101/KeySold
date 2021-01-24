@@ -32,9 +32,6 @@
           </li>
           @else
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/updatemembre') }}">Account Modification</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{ url('/signout') }}">Sign Out</a>
           </li>
           @endif
