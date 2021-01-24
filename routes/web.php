@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::group([
     'middleware'=>'App\Http\Middleware\Auth'
 ],function(){
-    Route::get('/updatemembre','App\Http\Controllers\AdminController@form_update_membre');
+    Route::get('/updatemembre/{id}','App\Http\Controllers\AdminController@form_update_membre')->name('update.User');
     Route::post('/updatemembre','App\Http\Controllers\AdminController@update_membre');
     Route::get('Portal/dashboard','App\Http\Controllers\AdminController@dashboard');
     Route::get('Portal/membre','App\Http\Controllers\AdminController@membre');

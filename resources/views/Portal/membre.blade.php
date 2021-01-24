@@ -32,7 +32,7 @@
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->date_de_naissance}}</td>
                                             <td><a href="">Ici(vers la page d'espace membre)</a></td>
-                                            <td><a href="{{url('/updatemembre')}}">Ici</a></td>
+                                            <td><a href="{{route('update.User',['id'=>$user->id])}}">Ici</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -21,9 +21,9 @@ class AdminController extends Controller
             'usersCount'=>$usersCount
         ]);
     }
-    public function form_update_membre(){
-        return view ('Portal/updatemembre');
-    }
+    // public function form_update_membre(){
+    //     return view ('Portal/updatemembre');
+    // }
     public function update_membre()
     {
         request()->validate([
@@ -34,8 +34,8 @@ class AdminController extends Controller
         ]);
         //recuperer l'instance de l'utilisateur connecte
         //modifier ces donnees
-
-        auth()->user()->update([
+        $id=request('id');
+        User::where('id',$id)->first()->update([
             'email'=>request('email'),
             'nom'=>request('nom'),
             'prenom'=>request('prenom'),
@@ -43,6 +43,12 @@ class AdminController extends Controller
         ]);
         flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/membre');
+    }
+    public function form_update_membre(int $id){
+        $user= User::all()->where('id',$id)->first();
+        return view('Portal/updatemembre',[
+            'user'=>$user
+        ]);
     }
     public function produit(){
         return view('Portal.produit');

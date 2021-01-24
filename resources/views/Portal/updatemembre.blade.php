@@ -24,9 +24,16 @@
                                 {{csrf_field()}}
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="hidden" name="id" 
+                                            placeholder="" value="{{$user->id}}" label="Id" id="InputId" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label for="InputNom">Nom: </label>
                                         <input type="text" name="nom" class="form-control form-control-user" 
-                                            placeholder="" value="{{old('nom')}}" label="Nom" id="InputNom" aria-describedby="nomHelp">
+                                            placeholder="" value="{{$user->nom}}" label="Nom" id="InputNom" aria-describedby="nomHelp">
                                         @if($errors->has('nom'))
                                         <small id="nomHelp" class="form-text text-muted">{{$errors->first('nom')}}</small>
                                         @endif
@@ -34,7 +41,7 @@
                                     <div class="col-sm-6">
                                         <label for="InputPrenom">Prenom: </label>
                                         <input type="text" name="prenom" class="form-control form-control-user" 
-                                            placeholder="" value="{{old('prenom')}}" label="Prenom" id="InputPrenom" aria-describedby="prenomHelp">
+                                            placeholder="" value="{{$user->prenom}}" label="Prenom" id="InputPrenom" aria-describedby="prenomHelp">
                                         @if($errors->has('prenom'))
                                         <small id="prenomHelp" class="form-text text-muted">{{$errors->first('prenom')}}</small>
                                         @endif
@@ -44,13 +51,13 @@
                                     <div class="col-sm-6">
                                         <label for="">Date de naissance: </label>
                                         <input type="date" name="date_de_naissance" class="form-control form-control-user" 
-                                            placeholder="">
+                                            placeholder="" value="{{$user->date_de_naissance}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputEmail">Email: </label>
                                     <input type="email" name="email" class="form-control form-control-user" 
-                                        placeholder="" value="{{old('email')}}" label="Email" id="InputEmail" aria-describedby="emailHelp">
+                                        placeholder="" value="{{$user->email}}" label="Email" id="InputEmail" aria-describedby="emailHelp">
                                     @if($errors->has('email'))
                                     <small id="emailHelp" class="form-text text-muted">{{$errors->first('email')}}</small>
                                     @endif
