@@ -45,6 +45,13 @@ class LoginController extends Controller
             ]);
         }
 
+
+    }
+
+    public function signout(){
+        auth()->Logout();
+
+        return redirect('/index');
     }
 
     public function signout(){
