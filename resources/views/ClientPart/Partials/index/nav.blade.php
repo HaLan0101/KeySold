@@ -23,12 +23,18 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          @if(auth()->guest())
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/login') }}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/register') }}">Register</a>
           </li>
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/signout') }}">Sign Out</a>
+          </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>

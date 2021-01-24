@@ -41,6 +41,7 @@ Route::post('/register','App\Http\Controllers\RegisterController@createUser');
 
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::post('/login','App\Http\Controllers\LoginController@connexion');
+Route::get('/signout', 'App\Http\Controllers\LoginController@signout');
 
 Route::get('/index', 'App\Http\Controllers\ClientsController@index');
 
