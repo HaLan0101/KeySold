@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User as User;
+use App\Models\Product as Product;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -50,8 +51,31 @@ class AdminController extends Controller
             'user'=>$user
         ]);
     }
-    public function produit(){
-        return view('Portal.produit');
+    public function product(){
+        $products= Product::all(); 
+        return view('Portal/product',[
+            'products'=>$products
+        ]);
+    }
+    public function form_createproduct(){
+        return view('Portal.createproduct');
+    }
+    public function createproduct(){
+        request()->validate([
+            'nom'=> ['required'],
+            'description'=> ['required'],
+            'prix'=> ['required'],
+            'quantite'=> ['required'],
+            'code'=> ['required','min:8'],
+        ]);
+        $product= Product::create([
+            'nom'=> request('nom'),
+            'description'=>request('description'),
+            'prix'=>request('prix'),
+            'quantite'=>request('quantite'),
+            'code'=>request('code')
+        ]);
+        return redirect('Portal/product');
     }
     public function forgotpassword(){
         return view('Connexion.forgotpassword');

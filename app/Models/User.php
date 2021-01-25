@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'date_de_naissance',
         'solde',
+        'is_admin',
     ];
 
     /**

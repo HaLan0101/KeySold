@@ -55,7 +55,7 @@
             <span>Page Membre</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{url('/produit')}}">
+        <a class="nav-link" href="{{url('Portal/product')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Page Produit</span></a>
     </li>

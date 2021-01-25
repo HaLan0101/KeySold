@@ -19,11 +19,13 @@ Route::get('/', function () {
 Route::group([
     'middleware'=>'App\Http\Middleware\Auth'
 ],function(){
-    Route::get('/updatemembre/{id}','App\Http\Controllers\AdminController@form_update_membre')->name('update.User');
-    Route::post('/updatemembre','App\Http\Controllers\AdminController@update_membre');
-    Route::get('Portal/dashboard','App\Http\Controllers\AdminController@dashboard');
-    Route::get('Portal/membre','App\Http\Controllers\AdminController@membre');
-    Route::get('/produit','App\Http\Controllers\AdminController@produit');
+    Route::get('/updatemembre/{id}','App\Http\Controllers\AdminController@form_update_membre')->name('update.User')->middleware('is_admin');
+    Route::post('/updatemembre','App\Http\Controllers\AdminController@update_membre')->middleware('is_admin');
+    Route::get('Portal/dashboard','App\Http\Controllers\AdminController@dashboard')->middleware('is_admin');
+    Route::get('Portal/membre','App\Http\Controllers\AdminController@membre')->middleware('is_admin');
+    Route::get('Portal/product','App\Http\Controllers\AdminController@product')->middleware('is_admin');
+    Route::get('/createproduct','App\Http\Controllers\AdminController@form_createproduct')->middleware('is_admin');
+    Route::post('/createproduct','App\Http\Controllers\AdminController@createproduct')->middleware('is_admin');
     Route::get('/signout','App\Http\Controllers\LoginController@signout');
 });
 
