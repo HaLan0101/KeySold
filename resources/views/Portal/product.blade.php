@@ -28,7 +28,8 @@
                                             <th>Code</th>
                                             <th>Photo</th>
                                             <th>Avis et note moyenne</th>
-                                            <th>Modification</th>
+                                            <th>Modifier</th>
+                                            <th>Supprimer</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,9 +42,17 @@
                                             <td>{{$product->code}}</td>
                                             <td>{{$product->photo}}</td>
                                             <td><a href="">Ici(vers la page d'un product détaillé)</a></td>
-                                            <td><a href="">Ici</a></td>
+                                            <td>
+                                                <a href="{{route('update.Product',['id'=>$product->id])}}" class="btn btn-info btn-circle btn-sm">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
+                                            </td>
+                                            <td><a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
                                         </tr>
-                                        @endforeach
+                                    @endforeach
                                        
                                     </tbody>
                                 </table>

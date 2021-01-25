@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    // public function dashboard(){
-    //     return view('Portal.dashboard');
-    // }
     public function membre(){
         $users= User::all(); 
         return view('Portal/membre',[
@@ -22,9 +19,6 @@ class AdminController extends Controller
             'usersCount'=>$usersCount
         ]);
     }
-    // public function form_update_membre(){
-    //     return view ('Portal/updatemembre');
-    // }
     public function update_membre()
     {
         request()->validate([
@@ -33,8 +27,6 @@ class AdminController extends Controller
             'prenom'=>['required'],
             'date_de_naissance'=>['required'],
         ]);
-        //recuperer l'instance de l'utilisateur connecte
-        //modifier ces donnees
         $id=request('id');
         User::where('id',$id)->first()->update([
             'email'=>request('email'),
@@ -75,6 +67,32 @@ class AdminController extends Controller
             'quantite'=>request('quantite'),
             'code'=>request('code')
         ]);
+        return redirect('Portal/product');
+    }
+    public function form_update_product(int $id){
+        $product= Product::all()->where('id',$id)->first();
+        return view('Portal/updateproduct',[
+            'product'=>$product
+        ]);
+    }
+    public function update_product()
+    {
+        request()->validate([
+            'nom'=> ['required'],
+            'description'=> ['required'],
+            'prix'=> ['required'],
+            'quantite'=> ['required'],
+            'code'=> ['required','min:8'],
+        ]);
+        $id=request('id');
+        Product::where('id',$id)->first()->update([
+            'nom'=> request('nom'),
+            'description'=>request('description'),
+            'prix'=>request('prix'),
+            'quantite'=>request('quantite'),
+            'code'=>request('code')
+        ]);
+        flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/product');
     }
     public function forgotpassword(){

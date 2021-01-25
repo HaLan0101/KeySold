@@ -21,7 +21,7 @@
                                             <th>Email</th>
                                             <th>Date de naissance</th>
                                             <th>Les achats et factures</th>
-                                            <th>Modification</th>
+                                            <th>Modifier</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,7 +32,11 @@
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->date_de_naissance}}</td>
                                             <td><a href="">Ici(vers la page d'espace membre)</a></td>
-                                            <td><a href="{{route('update.User',['id'=>$user->id])}}">Ici</a></td>
+                                            <td>
+                                                <a href="{{route('update.User',['id'=>$user->id])}}" class="btn btn-info btn-circle btn-sm">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
