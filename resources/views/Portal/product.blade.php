@@ -47,9 +47,18 @@
                                                     <i class="fas fa-info-circle"></i>
                                                 </a>
                                             </td>
-                                            <td><a href="#" class="btn btn-danger btn-circle btn-sm">
+                                            <td>
+                                            <form action="/deleteproduct/{{$product->id}}" method="POST">
+                                                {{csrf_field()}}
+                                                {{method_field('delete')}}
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="hidden" name="id" 
+                                                        placeholder="" value="{{$product->id}}" label="Id" id="InputId" >
+                                                </div>
+                                                <button type="submit" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
-                                                </a>
+                                                </button>
+                                            </form>
                                             </td>
                                         </tr>
                                     @endforeach

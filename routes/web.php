@@ -28,6 +28,7 @@ Route::group([
     Route::post('/createproduct','App\Http\Controllers\AdminController@createproduct')->middleware('is_admin');
     Route::get('/updateproduct/{id}','App\Http\Controllers\AdminController@form_update_product')->name('update.Product')->middleware('is_admin');
     Route::post('/updateproduct','App\Http\Controllers\AdminController@update_product')->middleware('is_admin');
+    Route::delete('/deleteproduct/{id}','App\Http\Controllers\AdminController@delete_product')->name('delete.Product')->middleware('is_admin');
     Route::get('/signout','App\Http\Controllers\LoginController@signout');
 });
 

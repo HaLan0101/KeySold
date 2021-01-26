@@ -95,6 +95,11 @@ class AdminController extends Controller
         flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/product');
     }
+    public function delete_product(){
+        $id=request('id');
+        Product::where('id',$id)->delete();
+        return redirect('Portal/product');
+    }
     public function forgotpassword(){
         return view('Connexion.forgotpassword');
     }
