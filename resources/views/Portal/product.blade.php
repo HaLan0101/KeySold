@@ -13,7 +13,7 @@
                     </a>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">      
+                        <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Produits</h6>
                         </div>
                         <div class="card-body">
@@ -41,7 +41,7 @@
                                             <td>{{$product->prix}}</td>
                                             <td>{{$product->code}}</td>
                                             <td><img src="{{ asset('storage/product/'.$product->photo) }}" alt="postImage" width="100px"></td>
-                                            <td><a href="">Ici(vers la page d un product détaillé)</a></td>
+                                            <td><a href="/product/{{$product->id}}">Ici(vers la page d'un product détaillé)</a></td>
                                             <td>
                                                 <a href="{{route('update.Product',['id'=>$product->id])}}" class="btn btn-info btn-circle btn-sm">
                                                     <i class="fas fa-info-circle"></i>
@@ -52,7 +52,7 @@
                                                 {{csrf_field()}}
                                                 {{method_field('delete')}}
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="hidden" name="id" 
+                                                    <input type="hidden" name="id"
                                                         placeholder="" value="{{$product->id}}" label="Id" id="InputId" >
                                                 </div>
                                                 <button type="submit" class="btn btn-danger btn-circle btn-sm">
@@ -62,7 +62,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                       
+
                                     </tbody>
                                 </table>
                             </div>

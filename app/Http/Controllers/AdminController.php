@@ -99,12 +99,13 @@ class AdminController extends Controller
             'code'=>request('code'),
             'photo'=>request('photo')->hashName(),
         ]);
-        flash('Vous avez réussi de mettre à jour')->success();
+        flash('Produit mis à jour')->success();
         return redirect('Portal/product');
     }
     public function delete_product(){
         $id=request('id');
         Product::where('id',$id)->delete();
+        flash('Produit supprimé')->success();
         return redirect('Portal/product');
     }
     public function forgotpassword(){
