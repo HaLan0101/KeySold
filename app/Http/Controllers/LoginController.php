@@ -50,18 +50,6 @@ class LoginController extends Controller
 
     public function signout(){
         auth()->Logout();
-
-        return redirect('/index');
-    }
-
-    public function signout(){
-        auth()->Logout();
-
-        return redirect('/index');
-    }
-
-    public function signout(){
-        auth()->Logout();
         flash('Déconnexion réussi')->success();
         return redirect('/index');
     }
