@@ -44,6 +44,29 @@ Route::post('/login','App\Http\Controllers\LoginController@connexion');
 
 Route::get('/index', 'App\Http\Controllers\ClientsController@index');
 Route::get('/profile', 'App\Http\Controllers\ClientsController@profile');
-Route::get('/cart', 'App\Http\Controllers\CartsController@cart');
+Route::get('/cart-checkout', 'App\Http\Controllers\CartsController@cart')->name('cart.checkout');;
+Route::post('/cart-add', 'App\Http\Controllers\CartsController@add')->name('cart.add');
+Route::post('/cart-clear', 'App\Http\Controllers\CartsController@clear')->name('cart.clear');
 
 Route::get('/product/{id}', 'App\Http\Controllers\ProductsController@product');
+
+// Pour Test
+Route::get('/shopping-cart-add', function () {
+    Cart::add(1, 'Macbook Pro', 2900, 1, array());
+
+    Cart::update(1,[
+        'quantity' => [
+            'relative' => false, //(false = écrase la valeur/ true = incremente de la valeur)
+            'value' => 3
+        ],
+    ]);
+
+    //Cart::remove(1); --> supprime totalement l'article par son ID, peu importe sa quantité
+
+    foreach (Cart::getContent() as $product){
+        echo "Id: $product->id</br>";
+        echo "Name: $product->name</br>";
+        echo "Price $product->price</br>";
+        echo "Quantity $product->quantity</br>";
+    }
+});

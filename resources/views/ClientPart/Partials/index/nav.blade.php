@@ -36,7 +36,7 @@
             <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/cart') }}">Cart</a>
+            <a class="nav-link" href="{{ url('/cart-checkout') }}">Cart</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/signout') }}">Sign Out</a>
