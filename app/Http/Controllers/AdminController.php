@@ -59,13 +59,16 @@ class AdminController extends Controller
             'prix'=> ['required'],
             'quantite'=> ['required'],
             'code'=> ['required','min:8'],
+            'photo'=> ['mimes:jpeg,bmp,png,jpg'],
         ]);
+        request('photo')->store('product', 'public');
         $product= Product::create([
             'nom'=> request('nom'),
             'description'=>request('description'),
             'prix'=>request('prix'),
             'quantite'=>request('quantite'),
-            'code'=>request('code')
+            'code'=>request('code'),
+            'photo'=>request('photo')->hashName(),
         ]);
         return redirect('Portal/product');
     }
@@ -83,14 +86,17 @@ class AdminController extends Controller
             'prix'=> ['required'],
             'quantite'=> ['required'],
             'code'=> ['required','min:8'],
+            'photo'=> ['mimes:jpeg,bmp,png,jpg'],
         ]);
         $id=request('id');
+        request('photo')->store('product', 'public');
         Product::where('id',$id)->first()->update([
             'nom'=> request('nom'),
             'description'=>request('description'),
             'prix'=>request('prix'),
             'quantite'=>request('quantite'),
-            'code'=>request('code')
+            'code'=>request('code'),
+            'photo'=>request('photo')->hashName(),
         ]);
         flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/product');

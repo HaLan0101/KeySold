@@ -25,7 +25,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Modifier d'un produit</h1>
                                     </div>
-                                    <form class="user" action="/updateproduct" method="post">
+                                    <form class="user" action="/updateproduct" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="hidden" name="id" 

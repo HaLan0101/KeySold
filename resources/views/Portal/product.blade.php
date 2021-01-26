@@ -40,8 +40,8 @@
                                             <td>{{$product->quantite}}</td>
                                             <td>{{$product->prix}}</td>
                                             <td>{{$product->code}}</td>
-                                            <td>{{$product->photo}}</td>
-                                            <td><a href="">Ici(vers la page d'un product détaillé)</a></td>
+                                            <td><img src="{{ asset('storage/product/'.$product->photo) }}" alt="postImage" width="100px"></td>
+                                            <td><a href="">Ici(vers la page d un product détaillé)</a></td>
                                             <td>
                                                 <a href="{{route('update.Product',['id'=>$product->id])}}" class="btn btn-info btn-circle btn-sm">
                                                     <i class="fas fa-info-circle"></i>
