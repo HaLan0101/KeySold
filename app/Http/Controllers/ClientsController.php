@@ -18,9 +18,9 @@ class ClientsController extends Controller
     }
 
     public function profile(){
-        $users= User::all();
+        $user= auth()->user();
         return view('ClientPart.Portal.profile',[
-            'user'=>$users
+            'user'=>$user
         ]);
     }
 }

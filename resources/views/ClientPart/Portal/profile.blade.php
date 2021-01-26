@@ -27,12 +27,12 @@
       <div class="mb-5">
         <div class="text-center">
           <div class="card-body">
-            <p class="card-text">Nom : (Valeur)</p>
-            <p class="card-text">Prenom : (Valeur)</p>
-            <p class="card-text">email : (Valeur)</p>
-            <p class="card-text">Date de naissance : (Valeur)</p>
+            <p class="card-text">Nom : {{ $user->nom }}</p>
+            <p class="card-text">Prenom : {{ $user->prenom }}</p>
+            <p class="card-text">email : {{ $user->email }}</p>
+            <p class="card-text">Date de naissance : {{ $user->date_de_naissance }}</p>
           </div>
-            <a href="{{ url('/updatemembre/{id}') }}" class="btn btn-primary">Modifier les informations du compte</a> {{-- Faire en sorte que lien fonctione par "ID" --}}
+            <a href="updatemembre/{{ $user->id }}" class="btn btn-primary">Modifier les informations du compte</a> {{-- Faire en sorte que lien fonctione par "ID" et n'est pas bloqué par le middleware --}}
         </div>
       </div>
 

@@ -7,10 +7,10 @@ use App\Models\Product as Product;
 
 class ProductsController extends Controller
 {
-    public function product(int $id){
-        $products= Product::all()->where($id)->first();
+    public function product($id){
+        $product= Product::where('id',$id)->first();
         return view('ClientPart.Portal.product',[
-            'products'=>$products
+            'products'=>$product
         ]);
     }
 }
