@@ -32,6 +32,7 @@ class RegisterController extends Controller
             'prenom'=>request('prenom'),
             'date_de_naissance'=>request('date_de_naissance')
         ]);
-        return view('Connexion.login');
+        flash('Votre compte a bien été créer ! Vous pouvez donc vous authentifier.')->success();
+        return view('ClientPart.Portal.index');
     }
 }

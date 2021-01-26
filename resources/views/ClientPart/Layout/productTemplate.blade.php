@@ -14,6 +14,7 @@
 
   <!-- Page Content -->
   <div class="container">
+    @include('flash::message')
 
     <div class="row">
 
@@ -21,9 +22,9 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">Jeu 1</h1>
+        <h1 class="mt-4">{{$products->nom}}</h1> {{-- N'arrive pas à trouver le contenu par ID à corriger --}}
 
-        <!-- Author -->
+        {{-- <!-- Author -->
         <p class="lead">
           by
           <a href="#">KeySold</a>
@@ -34,7 +35,7 @@
         <!-- Date/Time -->
         <p>Posted on January 22, 2021 at 18:10 PM</p>
 
-        <hr>
+        <hr> --}}
 
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
@@ -42,7 +43,8 @@
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+        <p>{{$products->description}}</p>
+        {{-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
 
@@ -59,7 +61,7 @@
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
 
-        <hr>
+        <hr> --}}
 
         <!-- Comments Form -->
         <div class="card my-4">
@@ -74,29 +76,12 @@
           </div>
         </div>
 
-        <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-
         <!-- Comment with nested comments -->
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
             <h5 class="mt-0">Commenter Name</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
 
             <div class="media mt-4">
               <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -116,14 +101,15 @@
 
         <!-- Side Widget -->
         <div class="card my-4 ml-5 w-50">
-            <h5 class="card-header">Prix : 15 €</h5>
+            <h5 class="card-header">{{$products->prix}} €</h5>
               <a href="#" class="btn btn-primary">Ajouter au panier</a>
         </div>
 
         <!-- Search Widget -->
         <div class="card my-4 ml-5 w-50">
             <h5 class="card-header">Note :</h5>
-            <div class="card-body">
+            <div class="card text-center">
+            <p>0/100</p>
             </div>
         </div>
 

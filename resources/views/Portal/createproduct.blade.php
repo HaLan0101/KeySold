@@ -9,6 +9,7 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
+        @include('flash::message')
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -29,7 +30,7 @@
                                     {{csrf_field()}}
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputNom">Nom: </label>
-                                            <input type="text" name="nom" class="form-control form-control-user" 
+                                            <input type="text" name="nom" class="form-control form-control-user"
                                                 placeholder="" value="{{old('nom')}}" label="Nom" id="InputNom" aria-describedby="nomHelp">
                                             @if($errors->has('nom'))
                                             <small id="nomHelp" class="form-text text-muted">{{$errors->first('nom')}}</small>
@@ -37,7 +38,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputDescription">Description: </label>
-                                            <input type="text" name="description" class="form-control form-control-user" 
+                                            <input type="text" name="description" class="form-control form-control-user"
                                                 placeholder="" value="{{old('description')}}" label="Description" id="InputDescription" aria-describedby="descriptionHelp">
                                             @if($errors->has('description'))
                                             <small id="descriptionHelp" class="form-text text-muted">{{$errors->first('description')}}</small>
@@ -45,7 +46,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputPrix">Prix: </label>
-                                            <input type="text" name="prix" class="form-control form-control-user" 
+                                            <input type="text" name="prix" class="form-control form-control-user"
                                                 placeholder="" value="{{old('prix')}}" label="Prix" id="InputPrix" aria-describedby="prixHelp">
                                             @if($errors->has('prix'))
                                             <small id="prixHelp" class="form-text text-muted">{{$errors->first('prix')}}</small>
@@ -53,7 +54,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputQuantite">Quantite: </label>
-                                            <input type="text" name="quantite" class="form-control form-control-user" 
+                                            <input type="text" name="quantite" class="form-control form-control-user"
                                                 placeholder="" value="{{old('quantite')}}" label="Quantite" id="InputQuantite" aria-describedby="quantiteHelp">
                                             @if($errors->has('quantite'))
                                             <small id="quantiteHelp" class="form-text text-muted">{{$errors->first('quantite')}}</small>
@@ -61,7 +62,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputCode">Code: </label>
-                                            <input type="text" name="code" class="form-control form-control-user" 
+                                            <input type="text" name="code" class="form-control form-control-user"
                                                 placeholder="" value="{{old('code')}}" label="Code" id="InputCode" aria-describedby="codeHelp">
                                             @if($errors->has('code'))
                                             <small id="codeHelp" class="form-text text-muted">{{$errors->first('code')}}</small>

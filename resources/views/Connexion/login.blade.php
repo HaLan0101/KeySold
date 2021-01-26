@@ -9,6 +9,7 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
+        @include('flash::message')
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -29,7 +30,7 @@
                                     {{csrf_field()}}
                                         <div class="form-group">
                                             <label for="InputEmail">Email: </label>
-                                            <input type="email" name="email" class="form-control form-control-user" 
+                                            <input type="email" name="email" class="form-control form-control-user"
                                                 placeholder="" label="Email" id="InputEmail" aria-describedby="emailHelp">
                                             @if($errors->has('email'))
                                             <small id="emailHelp" class="form-text text-muted">{{$errors->first('email')}}</small>
@@ -37,7 +38,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="InputPassword">Password: </label>
-                                            <input type="password" name="password" class="form-control form-control-user" 
+                                            <input type="password" name="password" class="form-control form-control-user"
                                                 placeholder=""  label="Password" id="InputPassword" aria-describedby="passwordlHelp">
                                             @if($errors->has('password'))
                                             <small id="passwordlHelp" class="form-text text-muted">{{$errors->first('password')}}</small>

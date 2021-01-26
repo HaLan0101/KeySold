@@ -14,6 +14,7 @@
 
   <!-- Page Content -->
   <div class="container">
+    @include('flash::message')
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
@@ -23,58 +24,23 @@
 
     <!-- Page Features -->
     <div class="row text-center">
+        @foreach($products as $product)
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
-            <h4 class="card-title">Jeu 1</h4>
-            <p class="card-text">Description...</p>
+            <h4 class="card-title">{{$product->nom}}</h4>
+            <p class="card-text">{{$product->description}}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">En savoir plus...</a>
+            <a href="/product/{{$product->id}}" class="btn btn-primary">En savoir plus...</a>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Jeu 2</h4>
-            <p class="card-text">Description...</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">En savoir plus...</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Jeu 3</h4>
-            <p class="card-text">Description...</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">En savoir plus...</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Jeu 4</h4>
-            <p class="card-text">Description...</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">En savoir plus...</a>
-          </div>
-        </div>
-      </div>
+      @endforeach
+    </div>
 
     </div>
     <!-- /.row -->

@@ -41,8 +41,9 @@ Route::post('/register','App\Http\Controllers\RegisterController@createUser');
 
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::post('/login','App\Http\Controllers\LoginController@connexion');
-Route::get('/signout', 'App\Http\Controllers\LoginController@signout');
 
 Route::get('/index', 'App\Http\Controllers\ClientsController@index');
+Route::get('/profile', 'App\Http\Controllers\ClientsController@profile');
+Route::get('/cart', 'App\Http\Controllers\CartsController@cart');
 
-Route::get('/product', 'App\Http\Controllers\ProductsController@product');
+Route::get('/product/{id}', 'App\Http\Controllers\ProductsController@product');
