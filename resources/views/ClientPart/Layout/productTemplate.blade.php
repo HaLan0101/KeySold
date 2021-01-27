@@ -22,7 +22,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">{{$products->nom}}</h1> {{-- N'arrive pas à trouver le contenu par ID à corriger --}}
+        <h1 class="mt-4">{{$product->nom}}</h1> {{-- N'arrive pas à trouver le contenu par ID à corriger --}}
 
         {{-- <!-- Author -->
         <p class="lead">
@@ -38,12 +38,12 @@
         <hr> --}}
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="{{ asset('storage/product/'.$product->photo) }}" alt="postImage">
 
         <hr>
 
         <!-- Post Content -->
-        <p>{{$products->description}}</p>
+        <p>{{$product->description}}</p>
         {{-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
@@ -101,7 +101,7 @@
 
         <!-- Side Widget -->
         <div class="card my-4 ml-5 w-50">
-            <h5 class="card-header">{{$products->prix}} €</h5>
+            <h5 class="card-header">{{$product->prix}} €</h5>
               <a href="#" class="btn btn-primary">Ajouter au panier</a>
         </div>
 

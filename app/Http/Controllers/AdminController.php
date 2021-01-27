@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function membre(){
-        $users= User::all();
+        $users= User::all(); 
         return view('Portal/membre',[
             'users'=>$users
         ]);
@@ -34,7 +34,7 @@ class AdminController extends Controller
             'prenom'=>request('prenom'),
             'date_de_naissance'=>request('date_de_naissance'),
         ]);
-        flash('Vos informations ont bien été mise à jour')->success();
+        flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/membre');
     }
     public function form_update_membre(int $id){
@@ -44,7 +44,7 @@ class AdminController extends Controller
         ]);
     }
     public function product(){
-        $products= Product::all();
+        $products= Product::all(); 
         return view('Portal/product',[
             'products'=>$products
         ]);
@@ -59,7 +59,7 @@ class AdminController extends Controller
             'prix'=> ['required'],
             'quantite'=> ['required'],
             'code'=> ['required','min:8'],
-            'photo'=> ['mimes:jpeg,bmp,png,jpg'],
+            'photo'=> ['required','mimes:jpeg,bmp,png,jpg'],
         ]);
         request('photo')->store('product', 'public');
         $product= Product::create([
@@ -70,7 +70,6 @@ class AdminController extends Controller
             'code'=>request('code'),
             'photo'=>request('photo')->hashName(),
         ]);
-        flash('Votre produit a bien été créer')->success();
         return redirect('Portal/product');
     }
     public function form_update_product(int $id){
@@ -87,7 +86,7 @@ class AdminController extends Controller
             'prix'=> ['required'],
             'quantite'=> ['required'],
             'code'=> ['required','min:8'],
-            'photo'=> ['mimes:jpeg,bmp,png,jpg'],
+            'photo'=> ['required','mimes:jpeg,bmp,png,jpg'],
         ]);
         $id=request('id');
         request('photo')->store('product', 'public');
@@ -99,13 +98,12 @@ class AdminController extends Controller
             'code'=>request('code'),
             'photo'=>request('photo')->hashName(),
         ]);
-        flash('Produit mis à jour')->success();
+        flash('Vous avez réussi de mettre à jour')->success();
         return redirect('Portal/product');
     }
     public function delete_product(){
         $id=request('id');
         Product::where('id',$id)->delete();
-        flash('Produit supprimé')->success();
         return redirect('Portal/product');
     }
     public function forgotpassword(){

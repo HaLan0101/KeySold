@@ -32,7 +32,7 @@
             <p class="card-text">email : {{ $user->email }}</p>
             <p class="card-text">Date de naissance : {{ $user->date_de_naissance }}</p>
           </div>
-            <a href="updatemembre/{{ $user->id }}" class="btn btn-primary">Modifier les informations du compte</a> {{-- Faire en sorte que lien fonctione par "ID" et n'est pas bloqué par le middleware --}}
+            <a href="/updateprofile" class="btn btn-primary">Modifier les informations du compte</a> 
         </div>
       </div>
 

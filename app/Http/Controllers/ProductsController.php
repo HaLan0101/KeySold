@@ -10,7 +10,7 @@ class ProductsController extends Controller
     public function product($id){
         $product= Product::where('id',$id)->first();
         return view('ClientPart.Portal.product',[
-            'products'=>$product
+            'product'=>$product
         ]);
     }
 }
