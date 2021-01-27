@@ -11,26 +11,54 @@ class CartsController extends Controller
     public function cart(){
         return view("ClientPart.Portal.cart");
     }
-    // utiliser au dessus ou en dessous pour la route
-    public function cartA(){
-        $params = [
-            'title' => 'Shopping Cart Checkout',
-        ];
-
-        return view('ClientPart.Portal.cart')->with($params);
-    }
 
     public function add(Request $request){
         $product = Product::find($request->id);
 
-        Cart::add($product->id, $product->name, $product->prix, 1, array());
+        if(auth()->user()){
 
-        return back()->with('success',"$product->name has successfully beed added to the shopping cart!");;
+            Cart::add(array(
+                'id' => $product->id,
+                'name' => $product->nom,
+                'price' => $product->prix,
+                'quantity' => 1,
+                'attributes' => array()
+            ));
+            flash('Cet article a bien été ajouté à votre panier')->success();
+            return back();
+        }
+        else{
+            flash('Vous devez être connecté pour cela')->error();
+            return back();
+        }
+
     }
+
+    // public function quantityUp(){
+
+    //     Cart::update(1 /*productID*/,[
+    //         'quantity' => [
+    //             'relative' => true, //(false = écrase la valeur/ true = incremente de la valeur)
+    //             'value' => 1
+    //         ],
+    //     ]);
+
+    // }
+    // public function quantityDown(){
+
+    //     Cart::update(1 /*productID*/,[
+    //         'quantity' => [
+    //             'relative' => true, //(false = écrase la valeur/ true = incremente de la valeur)
+    //             'value' => -1
+    //         ],
+    //     ]);
+
+    // }
 
     public function clear(){
         Cart::clear();
 
-        return back()->with('success',"The shopping cart is clean !");;
+        flash('Votre panier a bien été vidé')->success();
+        return back();
     }
 }

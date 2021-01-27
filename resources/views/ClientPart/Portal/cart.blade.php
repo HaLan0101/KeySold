@@ -12,6 +12,8 @@
      @include('ClientPart.Partials.index.nav')
 
      <div class="">
+        @include('flash::message')
+
         <div class="col-md-4 order-md-2 mb-4 mt-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Votre Panier</span>

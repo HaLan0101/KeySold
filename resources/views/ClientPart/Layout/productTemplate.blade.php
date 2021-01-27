@@ -101,8 +101,12 @@
 
         <!-- Side Widget -->
         <div class="card my-4 ml-5 w-50">
-            <h5 class="card-header">{{$products->prix}} €</h5>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            <h5 class="card-header">Prix : {{$products->prix}} €</h5>
+            <form action="{{ route('cart.add') }}" method="post" class="card-body align-self-center">
+                {{csrf_field()}}
+              <input name="id" type="hidden" value="{{$products->id}}">
+              <button type="submit" class="btn-primary">Ajouter au panier</button>
+            </form>
         </div>
 
         <!-- Search Widget -->
