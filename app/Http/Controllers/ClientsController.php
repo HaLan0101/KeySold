@@ -47,4 +47,12 @@ class ClientsController extends Controller
         flash('Vous avez réussi de mettre à jour')->success();
         return redirect('/profile');
     }
+    public function search()
+    {
+        $search=request('search');
+        $products=Product::all()->where('nom','like',$search);
+        return view('ClientPart.Portal.recherche',[
+            'products'=>$products,
+        ]);
+    }
 }

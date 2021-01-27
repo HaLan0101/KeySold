@@ -9,10 +9,13 @@
         <ul class="navbar-nav">
             <div>
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for a game...">
+                <form class="user" action="/search" method="POST">
+                  {{csrf_field()}}
+                  <input type="text" name="search" class="form-control" placeholder="Search for a game...">
                   <span class="input-group-append">
-                    <button class="btn btn-secondary" type="button">Search !</button>
+                    <input type="submit" value="Search" class="btn btn-secondary">
                   </span>
+                </form>
                 </div>
             </div>
         </ul>

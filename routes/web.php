@@ -51,6 +51,8 @@ Route::group([
     Route::post('/updateprofile', 'App\Http\Controllers\ClientsController@updateprofile');
 
 });
+Route::post('/search', 'App\Http\Controllers\ClientsController@search');
+
 
 Route::get('/cart-checkout', 'App\Http\Controllers\CartsController@cart')->name('cart.checkout');;
 Route::post('/cart-add', 'App\Http\Controllers\CartsController@add')->name('cart.add');
