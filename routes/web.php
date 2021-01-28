@@ -60,6 +60,7 @@ Route::post('/cart-clear', 'App\Http\Controllers\CartsController@clear')->name('
 
 Route::get('/product/{id}', 'App\Http\Controllers\ProductsController@product');
 
+
 // Pour Test
 Route::get('/shopping-cart-add', function () {
     Cart::add(1, 'Macbook Pro', 2900, 1, array());

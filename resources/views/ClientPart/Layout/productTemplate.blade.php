@@ -32,6 +32,26 @@
         <!-- Post Content -->
         <p>{{$product->description}}</p>
         <!-- Comments Form -->
+        @if(auth()->guest())
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form action="/comment" method="POST">
+            {{csrf_field()}}
+              <div class="form-group">
+                <input type="hidden" name="id_product" placeholder="" label="Id" id="InputId" >
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="id_user" placeholder="" label="Id" id="InputId" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="comments" rows="3">
+              </div>
+              <input type="submit" class="btn btn-primary" value="Comment">
+            </form>
+          </div>
+        </div>
+        @else
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
@@ -50,18 +70,31 @@
             </form>
           </div>
         </div>
-
+        @endif
         <!-- Comment with nested comments -->
+        @if(auth()->guest())
         @foreach($comments as $comment)
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
-            <h5 class="mt-0">{{$user->email}}</h5>
+            <h5 class="mt-0">{{$comment->id_user}}</h5>
             <p>{{$comment->created_at}}</p>
             {{$comment->comments}}
           </div>
         </div>
         @endforeach
+        @else
+        @foreach($comments as $comment)
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{$comment->id_user}}</h5>
+            <p>{{$comment->created_at}}</p>
+            {{$comment->comments}}
+          </div>
+        </div>
+        @endforeach
+        @endif
       </div>
 
     <!-- Sidebar Widgets Column -->
