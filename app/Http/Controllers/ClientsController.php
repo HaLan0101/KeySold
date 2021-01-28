@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User as User;
 use App\Models\Product as Product;
+use App\Models\Comment as Comment;
 
 class ClientsController extends Controller
 {
@@ -54,5 +55,21 @@ class ClientsController extends Controller
         return view('ClientPart.Portal.recherche',[
             'products'=>$products,
         ]);
+    }
+    public function comment()
+    {
+        request()->validate([
+            'id_user'=> ['required'],
+            'id_product'=> ['required'],
+            'comments'=> ['required'],
+        ]);
+        $id_product= request('id_product');
+        $comments= Comment::create([
+            'id_user'=> request('id_user'),
+            'id_product'=>request('id_product'),
+            'comments'=>request('comments'),
+        ]);
+        flash('Vous avez réussi à ajouter un commentaire')->success();
+        return back();
     }
 }

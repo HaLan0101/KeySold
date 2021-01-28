@@ -49,7 +49,7 @@ Route::group([
     Route::get('/profile', 'App\Http\Controllers\ClientsController@profile');
     Route::get('/updateprofile', 'App\Http\Controllers\ClientsController@form_updateprofile');
     Route::post('/updateprofile', 'App\Http\Controllers\ClientsController@updateprofile');
-
+    Route::post('/comment', 'App\Http\Controllers\ClientsController@comment');
 });
 Route::post('/search', 'App\Http\Controllers\ClientsController@search');
 
