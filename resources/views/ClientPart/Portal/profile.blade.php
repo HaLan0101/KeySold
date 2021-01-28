@@ -38,6 +38,10 @@
       </div>
 
       <div>
+          <!-- Jumbotron Header -->
+        <div class="jumbotron my-4">
+            <h1 class="display-5">Mes factures</h1>
+        </div>
         <table class="table table-hover table table-bordered">
             <thead>
               <tr>
@@ -52,7 +56,7 @@
             <tbody>
             @foreach ($facturation as $facture)
               <tr>
-                <th scope="row">{{$facture->id}}</th>  {{-- bug en fonctionnant --}}
+                <th scope="row">{{$facture->id}}</th>
                 <td>{{$facture->nom}}</td>
                 <td>{{$facture->quantite}}</td>
                 <td>{{$facture->prix}} €</td>

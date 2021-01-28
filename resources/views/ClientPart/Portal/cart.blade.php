@@ -27,6 +27,10 @@
                         <small class="text-muted">{{$product->quantity . ' x €' . $product->price}}</small>
                     </div>
                     <span class="text-muted">{{'€' . $product->price * $product->quantity}}</span>
+                    {{-- <form>
+                        <input id="moins" type="button" value="-" />
+                        <input id="plus" type="button" value="+" />
+                    </form> --}}
                 </li>
                 @endforeach
                 <li class="list-group-item d-flex justify-content-between">

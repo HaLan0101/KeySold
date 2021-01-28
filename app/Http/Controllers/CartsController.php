@@ -92,11 +92,7 @@ class CartsController extends Controller
 
             Cart::clear();
             flash('Votre commande a bien été effectuer')->success();
-            return view('ClientPart.Portal.profile',[
-                'user'=>$user,
-                'facturation'=>$facturation,
-                'product'=>$product
-            ]);
+            return back();
         }
         else
         {
