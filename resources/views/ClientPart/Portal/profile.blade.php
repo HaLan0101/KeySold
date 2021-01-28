@@ -52,12 +52,12 @@
             <tbody>
             @foreach ($facturation as $facture)
               <tr>
-                <th scope="row">1</th>  {{-- A incrémenter --}}
+                <th scope="row">{{$facture->id}}</th>  {{-- bug en fonctionnant --}}
                 <td>{{$facture->nom}}</td>
                 <td>{{$facture->quantite}}</td>
                 <td>{{$facture->prix}} €</td>
                 <td>{{$facture->code}}</td>
-                {{-- <td>{{$facture->date_achat}}</td> --}} {{-- Bug avec la date --> créer une boucle dés réparer--}}
+                <td>{{$facture->date_achat}}</td>
               </tr>
             @endforeach
             </tbody>

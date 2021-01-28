@@ -19,7 +19,7 @@ class CreateFacturationsTable extends Migration
             $table->string('nom');
             $table->integer('prix');
             $table->integer('quantite');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->date('date_achat');
             $table->timestamps();
         });

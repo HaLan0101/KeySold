@@ -72,6 +72,7 @@ class CartsController extends Controller
 
         $user= auth()->user();
         $product = Product::where($request->id)->first();
+        $productCart = Cart::getContent()->first();
 
         if($user->solde >= Cart::getSubTotal()){
             $paiement = $user->solde - Cart::getSubTotal();
@@ -81,10 +82,10 @@ class CartsController extends Controller
             ]);
 
                 $facturation = Facturation::create([
-                'productID'=>request('productID',$product->id),
-                'nom'=> request('nom',$product->nom),
-                'quantite'=>request('quantite',$product->quantite),
-                'prix'=>request('prix',$product->prix),
+                'productID'=>request('productID',$productCart->id),
+                'nom'=> request('nom',$productCart->name),
+                'quantite'=>request('quantite',$productCart->quantity),
+                'prix'=>request('prix',Cart::getSubTotal()),
                 'code'=>request('code',$product->code),
                 'date_achat'=>request('date_achat', new DateTime()),
             ]);
@@ -93,7 +94,8 @@ class CartsController extends Controller
             flash('Votre commande a bien été effectuer')->success();
             return view('ClientPart.Portal.profile',[
                 'user'=>$user,
-                'facturation'=>$facturation
+                'facturation'=>$facturation,
+                'product'=>$product
             ]);
         }
         else
