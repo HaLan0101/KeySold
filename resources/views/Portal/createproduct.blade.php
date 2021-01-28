@@ -70,7 +70,11 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="InputPhoto">Photo: </label>
-                                            <input type="file" name="photo" >
+                                            <input type="file" name="photo" 
+                                                placeholder="" value="{{old('photo')}}" label="Photo" aria-describedby="photoHelp">
+                                            @if($errors->has('photo'))
+                                            <small id="photoHelp" class="form-text text-muted">{{$errors->first('photo')}}</small>
+                                            @endif
                                         </div>
                                         <hr>
                                         <input type="submit" value="Créer" class="btn btn-primary btn-user btn-block">

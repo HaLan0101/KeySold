@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Connexion.login');
-});
+
 Route::group([
     'middleware'=>'App\Http\Middleware\Auth'
 ],function(){
@@ -42,8 +40,20 @@ Route::post('/register','App\Http\Controllers\RegisterController@createUser');
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::post('/login','App\Http\Controllers\LoginController@connexion');
 
+Route::get('/', 'App\Http\Controllers\ClientsController@index');
 Route::get('/index', 'App\Http\Controllers\ClientsController@index');
-Route::get('/profile', 'App\Http\Controllers\ClientsController@profile');
+
+Route::group([
+    'middleware'=>'App\Http\Middleware\Auth',
+],function(){
+    Route::get('/profile', 'App\Http\Controllers\ClientsController@profile');
+    Route::get('/updateprofile', 'App\Http\Controllers\ClientsController@form_updateprofile');
+    Route::post('/updateprofile', 'App\Http\Controllers\ClientsController@updateprofile');
+    Route::post('/comment', 'App\Http\Controllers\ClientsController@comment');
+});
+Route::post('/search', 'App\Http\Controllers\ClientsController@search');
+
+
 Route::get('/cart-checkout', 'App\Http\Controllers\CartsController@cart')->name('cart.checkout');;
 Route::post('/cart-add', 'App\Http\Controllers\CartsController@add')->name('cart.add');
 Route::post('/cart-clear', 'App\Http\Controllers\CartsController@clear')->name('cart.clear');

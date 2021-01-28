@@ -22,78 +22,79 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">{{$products->nom}}</h1> {{-- N'arrive pas à trouver le contenu par ID à corriger --}}
-
-        {{-- <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">KeySold</a>
-        </p>
-
-        <hr>
-
-        <!-- Date/Time -->
-        <p>Posted on January 22, 2021 at 18:10 PM</p>
-
-        <hr> --}}
+        <h1 class="mt-4">{{$product->nom}}</h1>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="{{ asset('storage/product/'.$product->photo) }}" alt="postImage">
 
         <hr>
 
         <!-- Post Content -->
-        <p>{{$products->description}}</p>
-        {{-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-        <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
-        <hr> --}}
-
+        <p>{{$product->description}}</p>
         <!-- Comments Form -->
+        @if(auth()->guest())
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
-            <form>
+            <form action="/comment" method="POST">
+            {{csrf_field()}}
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                <input type="hidden" name="id_product" placeholder="" label="Id" id="InputId" >
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="form-group">
+                <input type="hidden" name="id_user" placeholder="" label="Id" id="InputId" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="comments" rows="3">
+              </div>
+              <input type="submit" class="btn btn-primary" value="Comment">
             </form>
           </div>
         </div>
-
+        @else
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form action="/comment" method="POST">
+            {{csrf_field()}}
+              <div class="form-group">
+                <input type="hidden" name="id_product" placeholder="" value="{{$product->id}}" label="Id" id="InputId" >
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="id_user" placeholder="" value="{{$user->email}}" label="Id" id="InputId" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="comments" rows="3">
+              </div>
+              <input type="submit" class="btn btn-primary" value="Comment">
+            </form>
+          </div>
+        </div>
+        @endif
         <!-- Comment with nested comments -->
+        @if(auth()->guest())
+        @foreach($comments as $comment)
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
+            <h5 class="mt-0">{{$comment->id_user}}</h5>
+            <p>{{$comment->created_at}}</p>
+            {{$comment->comments}}
           </div>
         </div>
-
+        @endforeach
+        @else
+        @foreach($comments as $comment)
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{$comment->id_user}}</h5>
+            <p>{{$comment->created_at}}</p>
+            {{$comment->comments}}
+          </div>
+        </div>
+        @endforeach
+        @endif
       </div>
 
     <!-- Sidebar Widgets Column -->
