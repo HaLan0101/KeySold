@@ -50,13 +50,11 @@ Route::group([
     Route::get('/updateprofile', 'App\Http\Controllers\ClientsController@form_updateprofile');
     Route::post('/updateprofile', 'App\Http\Controllers\ClientsController@updateprofile');
     Route::post('/comment', 'App\Http\Controllers\ClientsController@comment');
+    Route::get('/cart-checkout', 'App\Http\Controllers\CartsController@cart')->name('cart.checkout');;
+    Route::post('/cart-add', 'App\Http\Controllers\CartsController@add')->name('cart.add');
+    Route::post('/cart-clear', 'App\Http\Controllers\CartsController@clear')->name('cart.clear');
+    Route::post('/payment', 'App\Http\Controllers\CartsController@payment')->name('cart.payment');
 });
 Route::post('/search', 'App\Http\Controllers\ClientsController@search');
-
-
-Route::get('/cart-checkout', 'App\Http\Controllers\CartsController@cart')->name('cart.checkout');;
-Route::post('/cart-add', 'App\Http\Controllers\CartsController@add')->name('cart.add');
-Route::post('/cart-clear', 'App\Http\Controllers\CartsController@clear')->name('cart.clear');
-Route::post('/payment', 'App\Http\Controllers\CartsController@payment')->name('cart.payment');
 
 Route::get('/product/{id}', 'App\Http\Controllers\ProductsController@product');
