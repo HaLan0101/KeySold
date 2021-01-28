@@ -1,6 +1,9 @@
 **KEYSOLD - Site ECOMMERCE - Achat de clé CD Jeux vidéo**
 ---
 Suivi Techno Projet Web - B2B YnovParis [Info] - 2020/2021
+---
+Framework PHP : Laravel 4.1.1
+BDD : MySQL
 -----------------------------------------------------------------------------------------------
 **Groupe :**
 ---
