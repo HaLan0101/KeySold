@@ -15,12 +15,11 @@ class CreateFacturationsTable extends Migration
     {
         Schema::create('facturations', function (Blueprint $table) {
             $table->id();
-            $table->integer('userID')->unique();
-            $table->integer('productID')->unique();
+            $table->integer('productID');
             $table->string('nom');
             $table->integer('prix');
             $table->integer('quantite');
-            $table->string('code')->unique();
+            $table->string('code');
             $table->date('date_achat');
             $table->timestamps();
         });

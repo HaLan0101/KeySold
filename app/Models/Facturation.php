@@ -9,7 +9,6 @@ class Facturation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'userID',
         'productID',
         'nom',
         'prix',
