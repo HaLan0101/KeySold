@@ -21,15 +21,15 @@ SAINT-HONORÉ Anthony
 3. Renommer le ".env.example" en ".env" (si vous n'avez pas déjà le ".env") et reconfigurer le avec votre BDD
 ---
 4. Mettez à jour la base de donnée avec la commande : "php artisan migrate"
---
+---
 5. Si la migration n'était pas opérationnel, utiliser ensuite la commande : "php artisan db:seed"
---
+---
 6. Créer un lien symbolique de public / stockage vers stockage / application / public : "php artisan storage:link"
---
+---
 7. Lancer ensuite le serveur avec la commande : "php artisan serve"
---
+---
 8. Dans l'index, pour vous authentifier cliquez sur "login", si vous souhaitez créer un compte pour tester l'interface "user" cliquez sur "Register"
---
+---
 9. Dans l'interface admin vous pouvez utiliser le CRUD pour les produits et les membres
 -----------------------------------------------------------------------------------------------
 **Pour les identifiants administrateurs du site**
